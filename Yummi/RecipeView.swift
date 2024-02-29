@@ -65,18 +65,26 @@ struct RecipeView: View {
     }
 }
 
-
 struct RecipeDetailView: View {
     var recipe: Recipe
+    @State private var servings: Int = 1
     
+    var scaledIngredients: [Ingredient] {
+        recipe.ingredients.map { ingredient in
+            let scaledQuantity = ingredient.quantity * servings
+            return Ingredient(name: ingredient.name, category: ingredient.category, quantity: scaledQuantity, unit: ingredient.unit)
+        }
+    }
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(recipe.name).font(.title)
-            ForEach(recipe.ingredients) { ingredient in
+            Stepper("Servings: \(servings)", value: $servings, in: 1...20)
+            ForEach(scaledIngredients, id: \.id) { ingredient in
                 Text("\(ingredient.quantity) \(ingredient.unit) \(ingredient.name)")
             }
-            Text("Rating: \(String(repeating: "⭐️",count: recipe.rating))")
-            Text("Number of people served: \(recipe.numPeopleServed)")
+            Text("Rating: \(String(repeating: "⭐️", count: recipe.rating))")
+            Text("Number of people served: \(servings)")
             Image(recipe.imageFilePath).resizable().frame(width: 250.0, height: 250.0)
         }
         .padding()
