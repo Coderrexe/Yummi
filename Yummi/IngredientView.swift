@@ -50,6 +50,8 @@ struct IngredientView: View {
     @State private var newUnit = ""
     @State private var newExpiryDate = Date()
     
+    @State private var showingAddIngredientSheet = false
+    
     var body: some View {
         NavigationView {
             List {
