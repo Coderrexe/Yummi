@@ -16,6 +16,7 @@
 		7C4563882B5FC806002983D3 /* YummiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4563872B5FC806002983D3 /* YummiUITests.swift */; };
 		7C45638A2B5FC806002983D3 /* YummiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4563892B5FC806002983D3 /* YummiUITestsLaunchTests.swift */; };
 		7C6DCD662B7627A300D32DD9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DCD652B7627A300D32DD9 /* ContentView.swift */; };
+		7CBF9E082BA9A36A006324ED /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBF9E072BA9A369006324ED /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		7C4563872B5FC806002983D3 /* YummiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YummiUITests.swift; sourceTree = "<group>"; };
 		7C4563892B5FC806002983D3 /* YummiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YummiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7C6DCD652B7627A300D32DD9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7CBF9E072BA9A369006324ED /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				7C4563722B5FC805002983D3 /* Preview Content */,
 				7C1FCC0A2B6D57B70069C225 /* RecipeView.swift */,
 				7C6DCD652B7627A300D32DD9 /* ContentView.swift */,
+				7CBF9E072BA9A369006324ED /* File.swift */,
 			);
 			path = Yummi;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CBF9E082BA9A36A006324ED /* File.swift in Sources */,
 				7C1FCC0B2B6D57B70069C225 /* RecipeView.swift in Sources */,
 				7C45636F2B5FC803002983D3 /* IngredientView.swift in Sources */,
 				7C6DCD662B7627A300D32DD9 /* ContentView.swift in Sources */,

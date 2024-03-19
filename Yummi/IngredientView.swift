@@ -52,6 +52,8 @@ struct IngredientView: View {
     
     @State private var showingAddIngredientSheet = false
     
+    @State private var sheetHeight: CGFloat = .zero
+    
     var body: some View {
         NavigationView {
             List {
@@ -61,21 +63,30 @@ struct IngredientView: View {
                     }
                     .onDelete(perform: deleteItems)
                 }
-                
-                Section(header: Text("Add new ingredient")) {
-                    TextField("Name", text: $newName)
-                    TextField("Category", text: $newCategory)
-                    TextField("Unit", text: $newUnit)
-                    Stepper("Quantity: \(newQuantity)", value: $newQuantity, in: 0...100)
-                    DatePicker("Expiry date", selection: $newExpiryDate, displayedComponents: .date)
-                    Button("Add ingredient") {
-                        let newIngredient = InventoryIngredient(ingredient: Ingredient(name: newName, category: newCategory, quantity: newQuantity, unit: newUnit), expiryDate: newExpiryDate)
-                        ingredients.append(newIngredient)
-                        clearInputFields()
-                    }
-                }
             }
             .navigationTitle("Ingredients")
+            .toolbar {
+                Button("Add") {
+                    showingAddIngredientSheet.toggle()
+                }
+                .sheet(isPresented: $showingAddIngredientSheet, content: {
+                    VStack {
+                        Section(header: Text("Add new ingredient")) {
+                            TextField("Name", text: $newName)
+                            TextField("Category", text: $newCategory)
+                            TextField("Unit", text: $newUnit)
+                            Stepper("Quantity: \(newQuantity)", value: $newQuantity, in: 0...100)
+                            DatePicker("Expiry date", selection: $newExpiryDate, displayedComponents: .date)
+                            Button("Add ingredient") {
+                                let newIngredient = InventoryIngredient(ingredient: Ingredient(name: newName, category: newCategory, quantity: newQuantity, unit: newUnit), expiryDate: newExpiryDate)
+                                ingredients.append(newIngredient)
+                                clearInputFields()
+                            }
+                        }
+                    }
+                    .presentationDetents([.fraction(0.4)])
+                })
+            }
         }
     }
     
